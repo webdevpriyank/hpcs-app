@@ -1,0 +1,47 @@
+<div class="p-5">
+    <div class="row">
+        <div class="col-6">
+            <h3>
+                List of Certificates
+            </h3>
+        </div>
+        <div class="col-6 text-right">
+            <button type="button" class="btn btn-primary" onclick="window.location.href='/create-certificate';">
+                Create New Certificate
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="">
+    <table class="table table-responsive table-bordered table-hover">
+        <thead>
+            <th> Certificate No. </th>
+            <th> Certificate Date </th>
+            <th> Company Name </th>
+            <th> Company Email ID </th>
+            <th colspan="3"> Actions </th>
+        </thead>
+
+        <tbody>
+            <% if(certificates.length> 0) { %>
+                <% certificates.forEach(function(certificate, index) { %>
+                    <tr>
+                        <td><%- certificate.toObject().certificateNo %></td>
+                        <td><%- certificate.toObject().issueDate %></td>
+                        <td><%- certificate.toObject().client.clientName %></td>
+                        <td><%- certificate.toObject().client.clientEmail %></td>
+                        <td> <a href="<%- certificate.toObject()._id %>">Edit</a>  </td>
+                        <td> <a href="/print-certificate/<%- certificate.toObject()._id %>">Print</a> </td>
+                        <td> <a href="/download-certificate/<%- certificate.toObject()._id %>">Download</a> </td>
+                    </tr>
+
+                    <% }) %>
+
+                        <% } else { %>
+                            <p>No Certificates Found!</p>
+                            <% } %>
+        </tbody>
+    </table>
+</div>

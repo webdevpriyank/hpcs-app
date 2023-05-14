@@ -1,0 +1,96 @@
+<div class="p-5">
+    <div class="row">
+        <div class="col-6">
+            <h3>
+                List of Clients
+            </h3>
+        </div>
+        <div class="col-6 text-right">
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" type="button"
+                class="btn btn-primary">Add New Client</button>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="">
+    <table class="table table-responsive table-bordered table-hover">
+        <thead>
+            <th> Certificate No. </th>
+            <th> Certificate Date </th>
+            <th> Company Name </th>
+            <th> Company Email ID </th>
+            <th colspan="3"> Actions </th>
+        </thead>
+
+        <tbody>
+            <% if(certificates.length> 0) { %>
+                <% certificates.forEach(function(certificate, index) { %>
+
+                    <td><%- certificate.toObject().certificateNo %></td>
+                    <td><%- certificate.toObject().issueDate %></td>
+                    <td><%- certificate.toObject().client.clientName %></td>
+                    <td><%- certificate.toObject().client.clientEmail %></td>
+                    <td> Edit </td>
+                    <td> Print </td>
+                    <td> Download </td>
+
+                    <% }) %>
+                        <% } else { %>
+                            <p>No Certificates Found!</p>
+                            <% } %>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create New Certificate</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <form>
+                    
+                    <div class="mb-3">
+                        <label for="certificateNo" class="col-form-label">Certificate No:</label>
+                        <input type="text" class="form-control" id="certificateNo" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="certificateNo" class="col-form-label">Select Client</label>
+                        <select name="client" id="client">
+                            <option value="1">Kabra International</option>
+                        </select>
+                    </div>
+
+
+
+
+
+
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
+    </div>
+</div>

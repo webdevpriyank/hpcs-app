@@ -1,0 +1,89 @@
+<div class="pagetitle">
+    <h1>Create Company</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+            <li class="breadcrumb-item active">Create Company</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+<% if (typeof successMessage !== 'undefined') { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= successMessage %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick=""></button>
+      </div>
+  
+<% } %>
+
+<section class="section dashboard">
+    <div class="row">
+        <!-- Left side columns -->
+        <div class="col-lg-12">
+            <div class="row">
+               
+                <div class="form-control p-5" id="exampleModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            
+                            <div class="modal-body">
+                                <form method="POST" action="/create-client">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="certificateNo" class="col-form-label">Company ID:</label>
+                                                <input type="text" name="certificateNo" value="HPCS/COM/FS/001" class="form-control"
+                                                    id="certificateNo" readonly disabled>
+                                            </div>
+                                        </div>
+                           
+                                    </div>
+                
+                                    <div class="p-3"></div>
+                                    
+                                    <div class="row">
+                                        <h6>Details of Company</h6>
+                                        <hr>
+                                        <div class="col-6">
+                                            <div class="mb-6">
+                                                <label for="clientName" class="col-form-label">Name Of Company:</label>
+                                                <input type="text" name="clientName" class="form-control" id="clientName"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="clientAddress" class="col-form-label">Address of Company:</label>
+                                            <textarea name="clientAddress" class="form-control" id="clientAddress" > </textarea>
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="clientEmail" class="col-form-label">Email of Company:</label>
+                                            <input type="email" name="clientEmail" class="form-control" id="clientEmail" required> </input>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="clientMobile" class="col-form-label">Mobile No of Company:</label>
+                                                <input type="text" name="clientMobile" class="form-control" id="clientMobile"> </input>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer mt-3">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <div class="p-1"></div>
+                                        <button type="submit" class="btn btn-primary">Save Company</button>
+                                    </div>
+                
+                                </form>
+                            </div>
+                
+                
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- End Right side columns -->
+        </div>
+    </section>
+

@@ -1,0 +1,281 @@
+<div class="pagetitle">
+    <h1>Create Certificate</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Create Certificate</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section dashboard">
+    <div class="row">
+        <!-- Left side columns -->
+        <div class="col-lg-12">
+            <div class="row">
+
+                <div class="form-control p-5" id="exampleModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            
+                            <div class="modal-body">
+                                <form method="POST" action="/create-certificate">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="certificateNo" class="col-form-label">Certificate No:</label>
+                                                <input type="text" name="certificateNo" value="<%= certificateNumber %>" class="form-control"
+                                                    id="certificateNo" readonly>
+                                            </div>
+                                            <input type="hidden" name="certificateIndex" value="<%= certificateIndex %>">
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="dateOfIssue" class="col-form-label">Date of Issue:</label>
+                                                <input type="date" name="dateOfIssue" class="form-control" id="dateOfIssue">
+                                            </div>
+                
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="client">Select Client</label>
+                                                <!-- <input type="text" class="form-control" id="clientInput" onkeyup="filterClients()"
+                                                     placeholder="Search for a client..."> -->
+                
+                                                <select id="clients" class="form-control" name="client">
+                                                    <option>Select Client</option>
+                                                    <% clients.forEach(function(client) { %>
+                                                        <option value="<%= client._id %>"><%= client.clientName %></option>
+                                                        <% }) %>
+                                                        
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                
+                                    <div class="row">
+                                        <h6>Details of Treatment</h6>
+                                        <hr>
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="nameOfFumigant" class="col-form-label">Name Of Fumigant:</label>
+                                                <input type="text" name="nameOfFumigant" class="form-control" id="nameOfFumigant"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="dateOfFumigation" class="col-form-label">Date of Fumigation:</label>
+                                                <input type="date" name="dateOfFumigation" class="form-control" id="dateOfFumigation"
+                                                    required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="placeOfFumigation" class="col-form-label">Place Of Fumigation:</label>
+                                                <input type="text" name="placeOfFumigation" class="form-control" id="placeOfFumigation"
+                                                    required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="dosageOfFumigation" class="col-form-label">Dossage Of Fumigant:</label>
+                                                <input type="text" name="dosageOfFumigation" class="form-control"
+                                                    id="dosageOfFumigation" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="durationOfFumigation" class="col-form-label">Duration Of Fumigation:</label>
+                                                <input type="text" name="durationOfFumigation" value="24 Hours" class="form-control"
+                                                    id="durationOfFumigation"  required>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="minTempOfFumigation" class="col-form-label">Min. Temp. While
+                                                    Fumigation:</label>
+                                                <input type="text" name="minTempOfFumigation" value="23 C" class="form-control"
+                                                    id="minTempOfFumigation" required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="fumigationSheet" class="col-form-label">Fumigation performed under gastight
+                                                    sheets:</label>
+                                                <input type="text" name="fumigationSheet" value="YES" class="form-control"
+                                                    id="fumigationSheet" readonly  required>
+                                            </div>
+                                        </div>
+                
+                                        <h6 class="mt-3">Details of Invoice</h6>
+                                        <hr>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="invoiceNo" class="col-form-label">Invoice No.:</label>
+                                                <input type="text" name="invoiceNo" class="form-control" id="invoiceNo" required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="invoiceDate" class="col-form-label">Invoice Date:</label>
+                                                <input type="text" name="invoiceDate" class="form-control" id="invoiceDate" required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="descOfGoods" class="col-form-label">Description of Goods:</label>
+                                                <textarea name="descOfGoods" class="form-control" id="descOfGoods" required> </textarea>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="portOfLoading" class="col-form-label">Port of Loading:</label>
+                                                <input type="text" name="portOfLoading" class="form-control" id="portOfLoading"
+                                                    required>
+                                            </div>
+                                        </div>
+                
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="portOfDischarge" class="col-form-label">Port Of Discharge:</label>
+                                                <input type="text" name="portOfDischarge" class="form-control" id="portOfDischarge"
+                                                    required>
+                                            </div>
+                                        </div>
+                
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="containerOrSealNo" class="col-form-label">Container No. / Seal No.:</label>
+                                                <input type="text" name="containerOrSealNo" class="form-control" id="containerOrSealNo"
+                                                    required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-6">
+                                            <div class="mb-6">
+                                                <label for="clientName" class="col-form-label">Exporter's Name:</label>
+                                                <input type="text" name="clientName" value="" class="form-control" id="exporterName">
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-6">
+                                            <div class="mb-6">
+                                                <label for="importerName" class="col-form-label">Importer's Name:</label>
+                                                <input type="text" name="importerName" value="" class="form-control" id="importerName" required>
+                                            </div>
+                                        </div>
+                
+                
+                                        <div class="col-6">
+                                            <div class="mb-6">
+                                                <label for="clientAddress" class="col-form-label">Exporter's Details:</label>
+                                                <textarea class="form-control" id="clientAddress" name="clientAddress" value=""
+                                                    required> </textarea>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-6">
+                                            <div class="mb-6">
+                                                <label for="importerAddress" class="col-form-label">Importers's Address:</label>
+                                                <textarea class="form-control" name="importerAddress" id="importerAddress"
+                                                    required> </textarea>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="typeOfCargo" class="col-form-label">Type & Description of Cargo:</label>
+                                                <input type="text" name="typeOfCargo" class="form-control" id="typeOfCargo" required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="quantity" class="col-form-label">Quantity / No of Packages/ No of
+                                                    Pieces:</label>
+                                                <input type="text" name="quantity" class="form-control" id="quantity" required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="descriptionOfPackaging" class="col-form-label">Description of Packaging
+                                                    Material:</label>
+                                                <input type="text" class="form-control" name="descriptionOfPackaging"
+                                                    id="descriptionOfPackaging" required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="mb-6">
+                                                <label for="grossWeight" class="col-form-label">Gross Weight:</label>
+                                                <input type="text" name="grossWeight" class="form-control" id="grossWeight" required>
+                                            </div>
+                                        </div>
+                
+                
+                                    </div>
+                                    <div class="modal-footer mt-3">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <div class="p-1"></div>
+                                        <button type="submit" class="btn btn-primary">Save Certificate</button>
+                                    </div>
+                
+                                </form>
+                            </div>
+                
+                
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- End Right side columns -->
+        </div>
+    </section>
+
+
+
+<script>
+    function filterClients() {
+        // Get the user's input from the search box
+        const input = document.getElementById("clientInput").value.toLowerCase();
+
+        // Get the dropdown options
+        const options = document.getElementById("clients").options;
+
+        // Loop through the options and hide/show them based on the user's input
+        for (let i = 0; i < options.length; i++) {
+            const option = options[i];
+            const value = option.value.toLowerCase();
+
+            if (value.indexOf(input) !== -1) {
+                option.style.display = "";
+            } else {
+                option.style.display = "none";
+            }
+        }
+    }
+</script>
+
+
+<!-- Add Selected Client Value to Cleitn Name -->
+<script>
+    const myDropdown = document.getElementById('clients');
+ 
+    myDropdown.addEventListener('change', function() {
+      exporterName.value = this.value;
+    });
+
+</script>

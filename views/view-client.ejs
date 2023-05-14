@@ -1,0 +1,46 @@
+<div class="p-5">
+    <div class="row">
+        <div class="col-6">
+            <h3>
+                List of Clients
+            </h3>
+        </div>
+        <div class="col-6 text-right">
+            <button type="button" class="btn btn-primary" onclick="window.location.href='/create-client';">
+                Create New Client
+            </button>
+        </div>
+    </div>
+</div>
+
+<% if (typeof successMessage !== 'undefined') { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= successMessage %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick=""></button>
+      </div>
+      
+  <% } %>
+<div class="">
+    <table class="table table-responsive table-bordered table-hover">
+        <thead>
+            <th> Company Name </th>
+            <th> Company Email ID </th>
+            <th colspan="3"> Actions </th>
+        </thead>
+
+        <tbody>
+            <% if(clients.length> 0) { %>
+                <% clients.forEach(function(client, index) { %>
+                    <tr>
+                        <td><%- client.toObject().clientName %></td>
+                        <td><%- client.toObject().clientEmail %></td>
+                        <td> Edit </td>
+                        <td> Delete </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+            <% } else { %>
+                <p>No Certificates Found!</p>
+            <% } %>
+    </table>
+</div>

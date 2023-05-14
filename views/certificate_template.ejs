@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fumigation Certificate - Heena Pest Control Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/main.css">
+    
+</head>
+
+<body  onload="window.print()">
+    <% certificateToPrint.forEach(function(data) { %>
+        <div class="container-fluid">
+            <div class="header">
+                <img class="logo" src="/assets/images/headernew.png" alt="Heena Pest Control Services">
+                <!-- <div class="address">
+                    <p class="">
+                        Shop No. 103, Bhavya Arcade, Near Ayush Hospital, Balitha, Vapi, Gujarat - 396195, Indian
+                    <ul class="list">
+                        <li class="left">
+                            Call +91 98251 76003
+                        </li>
+                        <li class="center">
+                            www.heenapestcontrol.com
+                        </li>
+                        <li class="right">
+                            Email heenapestcontrol@hotmail.com
+                        </li>
+                    </ul>
+                    </p>
+                </div> -->
+            </div>
+            <!-- <hr> -->
+        </div>
+        <h5 class="title">
+            <strong>
+                Fumigation Certificate
+            </strong>
+        </h5>
+        <div class="desc">
+            <p>
+                This is to certify that the goods described below were treated in accordance with the fumigation
+                treatment
+                requirements of importing country <span class="desc-var"><%= data.portOfDischarge %></span> and declared that the
+                consignment
+                has been verified free of
+                impervious surfaces/layers such as plastic wrapping or laminated plastic films, lacquered or painted
+                surfaces, aluminum foil, tarred or waxed paper etc. that may adversely affect the penetration of the
+                fumigant, prior to fumigation The Certificate is valid for the consignments shipped within 21 days from
+                the
+                date of completion of fumigation.
+            </p>
+        </div>
+
+        <div class="table-decor" style="padding-left: 5px; padding-right: 5px; margin-top: -25px;">
+            <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th style="line-height: 1;  font-weight: normal;" rowspan="2">
+                            PPQ& S Reg. No. : <b>869010422/MBR</b> <br>
+                            Date: <b>12/04/2022</b>
+                        </th>
+                        <th style="line-height: 1; font-weight: normal;">
+                            Treatment Certificate No: <b><%= data.certificateNo %></b>
+                        </th>
+                        <th style="line-height: 1; font-weight: normal;">
+                            Date of Issue:
+                            <b><%= data.issueDate %></b>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <th class="table-info" colspan="3">
+                        Details of Treatment
+                    </th>
+                    <tr>
+                        <td>
+                            Name of Fumigant
+                        </td>
+                        <td colspan="2">
+                            <%= data.nameOfFumigant %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Date of Fumigation
+                        </td>
+                        <td colspan="2">
+                            <%= data.dateOfFumigation %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Place of Fumigation
+                        </td>
+                        <td colspan="2">
+                            <%= data.placeOfFumigation %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Dosage of Fumigants
+                        </td>
+                        <td colspan="2">
+                            <%= data.dosageOfFumigation %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Duration of Fumigation
+                        </td>
+                        <td colspan="2">
+                            <%= data.durationOfFumigation %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Min temperature during fumigation
+                        </td>
+                        <td colspan="2">
+                            <%= data.minTempOfFumigation %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Fumigation performed under gastight sheets
+                        </td>
+                        <td colspan="2">
+                            <%= data.fumigationSheet %>
+                        </td>
+                    </tr>
+
+                    <th class="table-info" colspan="3">
+                        Description of Goods
+                        <!-- <td>
+                            Description of Goods
+                        </td> -->
+                        <!-- <td colspan="2">
+                            <%= data.descOfGoods %>
+                        </td> -->
+                    </th>
+
+                    <tr>
+                        <td>
+                            Invoice Details
+                        </td>
+                        <td colspan="2">
+                            Invoice No. <b><i><%= data.invoiceNo %></i></b>
+                            Invoice Date. <b><i><%= data.invoiceDate %></i></b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Port of Loading
+                        </td>
+                        <td colspan="2">
+                            <%= data.portOfLoading %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Port of Discharge
+                        </td>
+                        <td colspan="2">
+                            <%= data.portOfDischarge %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Container Number/Seal Number
+                        </td>
+                        <td colspan="2">
+                            <%= data.containerOrSealNo %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Name & Address of Exporter
+                        </td>
+                        <td colspan="2" style="line-height: 1;">
+                            <b><%= data.exporterName %></b> <br> <%= data.exporterAddress %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Name & Address of Importer
+                        </td>
+                        <td colspan="2" style="line-height: 1;">
+                            <b><%= data.importerName %></b> <br> <%= data.importerAddress %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Type & Description of Cargo
+                        </td>
+                        <td colspan="2">
+                            <%= data.typeOfCargo %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Quantity, No of packages/ No of pieces
+                        </td>
+                        <td colspan="2">
+                            <%= data.quantity %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Description of Packaging material
+                        </td>
+                        <td colspan="2">
+                            <%= data.descriptionOfPackaging %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Gross Weight
+                        </td>
+                        <td colspan="2">
+                            <%= data.grossWeight %>
+                        </td>
+                    </tr>
+
+                    <tr style="line-height: 1;">
+                        <td rowspan="2" style="line-height: 1;"> Name & Signature of Accredited Fumigation Operator with
+                            seal & date/ Accreditation No</td>
+                        <td colspan="2">
+                            <img src="/assets/images/stamp.png" alt="" height="130px">
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+
+        <% }) %>
+
+        <footer class="fixed-bottom p-3 bg-body-tertiary" id="print-button">
+            <div class="container">
+                <button class="btn btn-outline-info btn-group-lg" onclick="window.location.href='/view-certificates';">Back to Certificate List</button>
+                <button class="btn btn-outline-primary btn-group-lg" onclick="window.print()">Print Certificate</button>
+                <button class="btn btn-outline-primary btn-group-lg" id="download-btn">Download Certificate</button>
+            </div>
+        </footer>
+          
+
+    <script src="/assets/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
