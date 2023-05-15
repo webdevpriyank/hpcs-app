@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
@@ -7,13 +8,14 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 
 const app = express();
+app.use(express.static(path.join(__dirname, 'public')));
 const port = process.env.PORT || 3000;
 
 require('dotenv').config();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded( { extended: true } ));
-app.use(express.static('public'));
+// app.use(express.static('public'));
 app.use(expressLayouts);
 
 app.use(cookieParser('HPCSSECURE'));
